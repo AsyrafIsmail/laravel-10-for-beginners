@@ -4,6 +4,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Profile\AvatarController;
 
 /*
 |--------------------------------------------------------------------------

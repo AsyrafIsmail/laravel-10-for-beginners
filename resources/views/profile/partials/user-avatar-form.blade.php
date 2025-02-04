@@ -9,13 +9,20 @@
         </p>
     </header>
 
+    @if (session('message'))
+        <div class="text-red-500">
+            {{ session(('message'))}}
+        </div>
+    
+    @endif
+
     <form method="post" action="{{ route('profile.avatar') }}">
         @method('patch')
         @csrf
 
         {{-- <input type="hidden" name="_method" value="patch"> --}}
         {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}
-        
+
         <div>
             <x-input-label for="avatar" :value="__('Avatar')" />
             <x-text-input id="avatar" name="avatar" type="file" class="mt-1 block w-full" :value="old('avatar', $user->name)" required autofocus autocomplete="avatar" />
