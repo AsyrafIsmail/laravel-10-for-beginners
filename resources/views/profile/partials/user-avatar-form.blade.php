@@ -16,7 +16,7 @@
     
     @endif
 
-    <form method="post" action="{{ route('profile.avatar') }}">
+    <form method="post" action="{{ route('profile.avatar') }}" enctype="multipart/form-data">
         @method('patch')
         @csrf
 
