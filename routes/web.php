@@ -69,6 +69,6 @@ Route::get('/auth/callback', function () {
     // $user->token
 });
 
-Route::middleware('auth')->prefix('ticket')->group(function() {
-    Route::resource('/', TicketController::class);
+Route::middleware('auth')->group(function() {
+    Route::resource('/ticket', TicketController::class);
 });
