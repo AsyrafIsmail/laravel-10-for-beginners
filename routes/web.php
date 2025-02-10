@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TicketController;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use OpenAI\Laravel\Facades\OpenAI;
@@ -66,4 +67,8 @@ Route::get('/auth/callback', function () {
     Auth::login($user);
     return redirect('/dashboard');
     // $user->token
+});
+
+Route::middleware('auth')->prefix('ticket')->group(function() {
+    Route::resource('/', TicketController::class);
 });
