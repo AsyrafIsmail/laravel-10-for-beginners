@@ -11,7 +11,9 @@
                     @endif
                 </div>
                 <div class="flex">
-                    <x-primary-button>Edit</x-primary-button>
+                    <a href="{{ route('ticket.edit', $ticket->id)}}">
+                        <x-primary-button>Edit</x-primary-button>
+                    </a>
 
                     <form class="ml-2" action="{{ route('ticket.destroy', $ticket->id) }}" method="post">
                         @method('delete')

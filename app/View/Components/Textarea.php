@@ -9,11 +9,14 @@ use Illuminate\Contracts\View\View;
 class Textarea extends Component
 {
 
+    public $value = '';
+
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct($value)
     {
+        $this->value = $value;
     }
 
     /**
