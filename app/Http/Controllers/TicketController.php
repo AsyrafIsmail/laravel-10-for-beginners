@@ -44,12 +44,12 @@ class TicketController extends Controller
             $ext = $request->file('attachment')->extension();
             $contents = file_get_contents($request->file('attachment'));
             $filename = Str::random(25);
-            $path = "attachments/$filename.ext";
+            $path = "attachments/$filename.$ext";
             Storage::disk('public')->put($path, $contents);
             $ticket->update(['attachment' => $path]);
         }
         
-        return response()->redirectToRoute(route('ticket.index'));
+        return redirect(route('ticket.index'));
     }
 
     /**
@@ -57,7 +57,7 @@ class TicketController extends Controller
      */
     public function show(Ticket $ticket)
     {
-       return view('index');
+       return view('ticket.show', compact('ticket'));
     }
 
     /**
